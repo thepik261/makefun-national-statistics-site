@@ -1,0 +1,164 @@
+/* Kalandra National Statistics Office — a plain, official look: deep navy
+   ink, teal accents, warm amber for highlights, generous white space.
+   No web fonts, no images: everything is type, colour and SVG. */
+
+:root {
+  --ink: #17324a;
+  --teal: #0e7a6d;
+  --teal-dark: #0a5c52;
+  --amber: #d98a1f;
+  --rust: #b4552d;
+  --slate: #5b7286;
+  --line: #dbe4ea;
+  --paper: #f4f7f8;
+  --card: #ffffff;
+  --good: #1d7a3d;
+  --bad: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+h1, h2, h3, .kpi-value, nav, .btn, button, th, .eyebrow {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+h1 { font-size: 2rem; line-height: 1.2; margin: 0.4em 0 0.5em; }
+h2 { font-size: 1.35rem; margin: 0 0 0.6em; }
+h3 { font-size: 1.05rem; margin: 0 0 0.5em; }
+p { margin: 0 0 0.8em; }
+a { color: var(--teal-dark); }
+a:hover { text-decoration-thickness: 2px; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+/* Header */
+.site-header { background: var(--ink); color: #fff; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-top: 18px; padding-bottom: 18px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+.brand-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 46px; height: 46px; border-radius: 6px;
+  background: var(--teal); color: #fff; font-size: 26px; font-weight: 700;
+  font-family: 'Segoe UI', system-ui, sans-serif; flex: none;
+}
+.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-text strong { font-size: 1.05rem; font-family: 'Segoe UI', system-ui, sans-serif; }
+.brand-text span { font-size: 0.82rem; color: #b9c9d4; }
+.header-note { margin: 0; font-size: 0.85rem; color: #b9c9d4; }
+
+.main-nav { background: var(--teal-dark); }
+.nav-links { display: flex; flex-wrap: wrap; gap: 2px; }
+.nav-links a {
+  color: #e6f2ef; text-decoration: none; font-size: 0.95rem;
+  padding: 10px 12px; border-bottom: 3px solid transparent;
+}
+.nav-links a:hover { background: rgba(255, 255, 255, 0.08); }
+.nav-links a.active { border-bottom-color: var(--amber); color: #fff; font-weight: 600; }
+
+/* Main */
+main { padding: 28px 20px 40px; }
+.hero { padding: 8px 0 4px; }
+.eyebrow { color: var(--teal-dark); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 0.4em; }
+.hero h1 { font-size: 2.4rem; margin-top: 0; }
+.lede { font-size: 1.15rem; color: #2c465c; max-width: 62ch; }
+.hero-links { margin-top: 1em; }
+
+.btn {
+  display: inline-block; background: var(--teal); color: #fff; border: none;
+  padding: 10px 18px; border-radius: 6px; font-size: 0.95rem; font-weight: 600;
+  text-decoration: none; cursor: pointer;
+}
+.btn:hover { background: var(--teal-dark); }
+.btn.ghost { background: transparent; color: var(--teal-dark); border: 2px solid var(--teal); }
+.btn.ghost:hover { background: #e2efec; }
+
+.panel {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+  padding: 22px 24px; margin: 0 0 22px;
+}
+.panel h2 { border-bottom: 3px solid var(--amber); padding-bottom: 8px; }
+.source { font-size: 0.82rem; color: var(--slate); margin: 0.6em 0 0; }
+.hint { font-size: 0.85rem; color: var(--slate); }
+.crumb { margin-bottom: 0; }
+
+/* KPI cards */
+.kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 0 0 22px; }
+.kpi {
+  background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--teal);
+  border-radius: 8px; padding: 16px 18px;
+}
+.kpi h3 { font-size: 0.9rem; color: var(--slate); font-weight: 600; margin-bottom: 6px; }
+.kpi-value { font-size: 1.7rem; font-weight: 700; margin: 0 0 4px; }
+.kpi-meta { font-size: 0.9rem; margin: 0 0 4px; }
+.kpi-source { font-size: 0.75rem; color: var(--slate); margin: 0; }
+.change { font-weight: 600; }
+.change.good { color: var(--good); }
+.change.bad { color: var(--bad); }
+.change.flat { color: var(--slate); }
+
+/* Two-column layout */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.two-col .panel { margin-bottom: 22px; }
+
+/* Tables */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { background: #eef3f5; font-size: 0.88rem; }
+tbody tr:hover { background: #f7fafb; }
+td.winner { background: #e2f2ee; font-weight: 700; }
+table.sortable th:hover { background: #e2ebef; }
+
+/* Releases */
+.releases { list-style: none; padding: 0; margin: 0; }
+.releases li {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  padding: 10px 0; border-bottom: 1px solid var(--line);
+}
+.releases li:last-child { border-bottom: none; }
+.rel-date { color: var(--slate); font-size: 0.9rem; white-space: nowrap; }
+
+/* Charts */
+svg { max-width: 100%; height: auto; display: block; }
+.donut-wrap { text-align: center; }
+.legend { display: flex; flex-direction: column; gap: 4px; text-align: left; font-size: 0.88rem; margin-top: 4px; }
+.legend-item { display: flex; align-items: center; gap: 8px; }
+.swatch { display: inline-block; width: 12px; height: 12px; border-radius: 3px; flex: none; }
+
+/* Controls */
+.controls { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 14px; }
+.controls label { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 0.92rem; font-weight: 600; }
+select, input[type="search"] {
+  font: inherit; font-size: 0.95rem; padding: 7px 10px;
+  border: 1px solid var(--line); border-radius: 6px; background: #fff; color: var(--ink);
+}
+input[type="search"] { min-width: 220px; }
+
+/* Footer */
+.site-footer { background: var(--ink); color: #c6d4de; padding: 26px 0 34px; font-size: 0.9rem; }
+.site-footer a { color: #fff; }
+.site-footer p { margin: 0 0 0.6em; }
+
+/* Phones */
+@media (max-width: 760px) {
+  body { font-size: 16px; }
+  h1, .hero h1 { font-size: 1.7rem; }
+  .kpi-grid { grid-template-columns: 1fr 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .header-note { display: none; }
+  .nav-links a { padding: 9px 9px; font-size: 0.9rem; }
+  .panel { padding: 16px 16px; }
+  input[type="search"] { min-width: 0; width: 100%; }
+}
+@media (max-width: 480px) {
+  .kpi-grid { grid-template-columns: 1fr; }
+}
